@@ -3,10 +3,10 @@ import base64
 
 def GenerateKeyPair():
     (public_key, private_key) = rsa.newkeys(512)
-    p = open('publickey.pem', 'wb')
+    p = open('publicKey.pem', 'wb')
     p.write(public_key.save_pkcs1('PEM'))
     p.close
-    p = open('privatekey.pem', 'wb')
+    p = open('privateKey.pem', 'wb')
     p.write(private_key.save_pkcs1('PEM'))
     p.close
 
@@ -17,7 +17,7 @@ def CollectPublicKey():
     return public_key
 
 def CollectReceivedPublicKey():
-    p = open('receivedpublickey.pem', 'rb')
+    p = open('receivedpublicKey.pem', 'rb')
     public_key = rsa.PublicKey.load_pkcs1(p.read())
     p.close
     return public_key
